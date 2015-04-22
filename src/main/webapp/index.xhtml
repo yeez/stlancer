@@ -3,28 +3,33 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
 <head jsf:id="head">
-<title>JSFlive JSF 2.2 - HTML5</title>
+<title>Stancer Index</title>
 </head>
 <body jsf:id="body">
-	<form jsf:id="form">
-		<h:messages />
-		<h:panelGrid columns="2">
-			<label jsf:for="name">Name:</label>
-			<input type="text" jsf:id="name" jsf:value="#{indexPage.name}"
-				placeholder="Enter name" data-required="true" />
-				
-			<label jsf:for="email">Email:</label>
-			<h:inputText id="email" value="#{indexPage.email}" p:type="email"
-				p:placeholder="Enter email">
-				<f:passThroughAttribute name="data-required" value="true" />
-				<f:validateLength minimum="3" />
-			</h:inputText>
-		</h:panelGrid>
-	</form>
+	<ui:composition template="./template.xhtml">
+		<ui:define name="content">
+			WELCOME!!!!!!!
+		<form jsf:id="form">
+				<h:messages />
+				<h:panelGrid columns="2">
+					<label jsf:for="name">Name:</label>
+					<input type="text" jsf:id="name" jsf:value="#{indexPage.name}"
+						placeholder="Enter name" data-required="true" />
 
-	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+					<label jsf:for="email">Email:</label>
+					<h:inputText id="email" value="#{indexPage.email}" p:type="email"
+						p:placeholder="Enter email">
+						<f:passThroughAttribute name="data-required" value="true" />
+						<f:validateLength minimum="3" />
+					</h:inputText>
+				</h:panelGrid>
+			</form>
+
+		</ui:define>
+	</ui:composition>
 </body>
 </html>
