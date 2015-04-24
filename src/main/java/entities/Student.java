@@ -15,8 +15,18 @@ public class Student {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long id;
 	
-	@Column(name = "student_name")
-	private String studentName;
+	@Column(name = "name")
+	private String name;
+	
+	@Column(name = "email")
+	private String email;
+	
+	@Column(name = "password")
+	private String password;
+	
+	@Column(name = "confirmed_flag")
+	private boolean isConfirmed;
+	
 
 	public long getId() {
 		return id;
@@ -26,15 +36,38 @@ public class Student {
 		this.id = id;
 	}
 
-	public String getStudentName() {
-		return studentName;
+	public String getName() {
+		return name;
 	}
 
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
+	public void setName(String studentName) {
+		this.name = studentName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public boolean isConfirmed() {
+		return isConfirmed;
+	}
+
+	public void setConfirmed(boolean isConfirmed) {
+		this.isConfirmed = isConfirmed;
 	}
 	
-
 }
 
 

@@ -6,6 +6,7 @@
 <head jsf:id="head">
 <title>Stancer Template</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" />
+
 </head>
 <body jsf:id="body">
 	<nav class="navbar navbar-default">
@@ -19,7 +20,7 @@
 					<li><a href="#">Companies</a></li>
 					<li><a href="#">About</a></li>
 					<li><a href="#">Log In</a></li>
-					<li><a href="#">Register</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#bannerformmodal">Register</a></li>
 				</ul>
 			</div>
 		</div>
@@ -27,6 +28,8 @@
 	<div class="container">
 		<ui:insert name="content"></ui:insert>
 	</div>
+	
+	<ui:include src="./register.xhtml"></ui:include>
 	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body>

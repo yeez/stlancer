@@ -21,10 +21,14 @@
 		<property name="show_sql">true</property>
 
 		<!-- Drop and re-create all database on startup -->
-		<property name="hibernate.hbm2ddl.auto">create-drop</property>   
+		<!--  property name="hibernate.hbm2ddl.auto">create-drop -->   
+		
+		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property> 
 
 		<!-- Annotated entity classes -->
 		<mapping class="entities.Student" />
+		
+		
 
 	</session-factory>
 </hibernate-configuration>

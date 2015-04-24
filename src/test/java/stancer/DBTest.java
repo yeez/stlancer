@@ -15,7 +15,7 @@ public class DBTest extends TestCase {
 		StudentService setudentService = new StudentService();
 		
 		Student student = new Student();
-		student.setStudentName("Yasser");
+		student.setName("TEST");
 		
 		setudentService.persist(student);
 	}
