@@ -9,83 +9,61 @@
 <head jsf:id="head">
 <title>Register</title>
 </head>
+<body jsf:id="body">
+	<ui:composition>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog" tabindex="-1"
+			aria-labelledby="bannerformmodal" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<form role="form">
 
-<body>
-<ui:composition>
-<div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">
-<div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          <div class="modal-content">
-                <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                <h4 class="modal-title" id="myModalLabel">Contact Form</h4>
-                </div>
-                <div class="modal-body">
-                     <form id="requestacallform" method="POST" name="requestacallform">
 
-                                <div class="form-group">
-                                    <div class="input-group">                               
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="first_name" type="text" class="form-control" placeholder="First Name" name="first_name"/>
-                                    </div>
-                              </div>
-                              <div class="form-group">
-                                    <div class="input-group">                               
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input id="last_name" type="text" class="form-control" placeholder="Last Name" name="last_name"/>
-                                    </div>
-                              </div>
-                                <div class="form-group">
-                                    <div class="input-group">                               
-                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                    <input id="email1" type="text" class="form-control" placeholder="Email" name="email1" onchange="validateEmailAdd();"/>
-                                    </div>
-                              </div>
-                              <div class="form-group">
-                                    <div class="input-group">                               
-                                    <span class="input-group-addon"><i class="fa fa-group"></i></span>
-                                    <input id="company_name_c" type="text" class="form-control" placeholder="Company Name" name="company_name_c"/>
-                                    </div>
-                              </div>
-                                <div class="form-group">
-                                    <div class="input-group">                               
-                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                    <input id="phone_mobile" type="text" class="form-control" placeholder="Mobile" name="phone_mobile"/>
-                                    </div>
-                              </div>
-                            <div class="form-group">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-building-o"></i></span>
-                                        <select class="form-control selectpicker" name="monthly_rental">
-                                            <option>How many seats do you have available?</option>
-                                            <option>10-50</option>
-                                            <option>50-100</option>
-                                            <option>100-200</option>
-                                            <option>200-500</option>
-                                            <option>500+</option>
-                                        </select>
-                                    </div>
-                            </div>
-                                <div class="control-group">
-                                    <div class="controls">                     
-                                        <textarea id="description" type="text" name="description"  placeholder="Description"></textarea>
-                                    </div>
-                                </div>
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"></button>
+							<h4 class="modal-title">Register</h4>
+						</div>
+						<div class="modal-body">
 
-                            </form>
-                  </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-blue">Submit</button>
-              </div>          
-        </div>
-        </div>
-      </div>
-    </div>
+							<div class="form-group">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user">
+											<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									</i></span> <input jsf:id="name" type="text" class="form-control"
+										placeholder="Full Name" name="name"
+										jsf:value="#{registerPage.student.name}" />
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user">
+											<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+									</i></span> <input jsf:id="email1" type="text" class="form-control"
+										placeholder="Email" name="email1"
+										jsf:value="#{registerPage.student.email}" />
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user">
+											<span class="glyphicon glyphicon-certificate"
+											aria-hidden="true"></span>
+									</i></span> <input jsf:id="password" type="password" class="form-control"
+										placeholder="Password" name="password"
+										jsf:value="#{registerPage.student.password}" />
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button jsf:id="submit" type="button" class="btn btn-default btn-lg btn-block btn-warning"
+								jsf:onclick="#{registerPage.persistNewStudent()}" >Register</button>
+						</div>
 
-</ui:composition>
+					</div>
+				</form>
+			</div>
+		</div>
+	</ui:composition>
 </body>
 </html>
-
-
-
-
