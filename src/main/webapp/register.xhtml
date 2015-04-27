@@ -56,8 +56,14 @@
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button jsf:id="submit" type="button" class="btn btn-default btn-lg btn-block btn-warning"
-								jsf:onclick="#{registerPage.persistNewStudent()}" >Register</button>
+						
+							<button jsf:id="submit" type="submit"
+								class="btn btn-default btn-lg btn-block btn-warning"
+								jsf:action="#{registerPage.persistNewStudent}" jsf:update="form">Register</button>
+								
+								<h:panelGroup rendered="#{registerPage.studentExistFlag}">
+								<div class="alert alert-danger" role="alert" ><STRONG>Student Exists in DB!</STRONG></div>
+								</h:panelGroup>
 						</div>
 
 					</div>

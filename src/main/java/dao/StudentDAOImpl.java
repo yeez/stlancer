@@ -2,12 +2,14 @@ package dao;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
+import org.hibernate.annotations.common.util.impl.Log;
+
 import entities.Student;
 
 public class StudentDAOImpl extends HbUtil implements EntityDAO<Student, String> {
 
 	public StudentDAOImpl(){
-
 	}
 
 	@Override
@@ -44,6 +46,16 @@ public class StudentDAOImpl extends HbUtil implements EntityDAO<Student, String>
 		for (Student student : studentList) {
 			delete(student);
 		}
+	}
+
+	public Student findByEmail(String email) {
+		Student tempStudent = null;
+		try{
+			tempStudent = (Student) getCurrentSession().createQuery("SELECT * FROM student WHERE email like '"+email+"'");			
+		}catch (HibernateException e){
+			e.printStackTrace();
+		}
+		return tempStudent;
 	}
 
 }

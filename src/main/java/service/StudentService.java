@@ -56,4 +56,12 @@ public class StudentService {
 		return studentDaoImpl;
 	}
 	
+	public boolean isStudentMember(String email){
+		if(studentDaoImpl.findByEmail(email) == null){
+			return false;
+		}else{
+			return true;
+		}
+	}
+	
 }

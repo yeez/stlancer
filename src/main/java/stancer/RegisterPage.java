@@ -13,6 +13,7 @@ public class RegisterPage {
 	
 	private StudentService studentService;
 	private Student student;
+	private boolean studentExistFlag = false;
 	
 	@PostConstruct
 	public void init() {
@@ -21,7 +22,12 @@ public class RegisterPage {
 	}
 	
 	public void persistNewStudent(){
-		studentService.persist(student);
+		if(! studentService.isStudentMember(student.getEmail())){
+			studentExistFlag = false;
+			studentService.persist(student);			
+		}else{
+			studentExistFlag = true;
+		}
 	}
 
 	public Student getStudent() {
@@ -30,6 +36,14 @@ public class RegisterPage {
 
 	public void setStudent(Student student) {
 		this.student = student;
+	}
+
+	public boolean isStudentExistFlag() {
+		return studentExistFlag;
+	}
+
+	public void setStudentExistFlag(boolean studentExistFlag) {
+		this.studentExistFlag = studentExistFlag;
 	}
 
 }
